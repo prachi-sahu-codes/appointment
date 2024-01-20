@@ -23,6 +23,7 @@ Users can explore the available dates, easily select new appointment based on av
 ## Installation and Usage Instructions
 To clone and run this application. From your command line:
 
+```
 # Clone this repository
 $ git clone https://github.com/prachi-sahu-codes/appointment.git
 
@@ -34,3 +35,4 @@ $ npm install
 
 # Run the app
 $ npm run dev
+```
