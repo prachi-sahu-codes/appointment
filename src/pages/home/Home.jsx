@@ -1,10 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import chevronRight from "../../assets/chevronRight.svg";
-import { Box, Calendar, Container } from "../../components";
-import { slotsData, variantsData } from "../../data/data";
+import {
+  Box,
+  Calendar,
+  Container,
+  SlotsSelect,
+  VariantSelect,
+} from "../../components";
+import { slotsData } from "../../data/data";
+import { useData } from "../../context/DataProvider";
 
 const Home = () => {
+  const { state, dispatch } = useData();
+
+  const inputDate = new Date(state.dateSelected[0]?.date ?? "2024-01-20");
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+  }).format(inputDate);
+
   return (
     <Container>
       <div className="flex h-[494px]">
@@ -21,28 +37,12 @@ const Home = () => {
           <p className="text-dark2 text-[12px] pb-[6px] font-semibold">
             SELECT FROM VARIANTS
           </p>
-          <select className="w-full accent-primary h-[48px] border border-[#C7C9D9] rounded-[10px] px-[12px] py-[8px]">
-            {variantsData.map((str) => (
-              <option key={str} value={str}>
-                {str}
-              </option>
-            ))}
-          </select>
+          <VariantSelect date={state?.dateSelected} />
           <hr className="text-[#C7C9D9] my-[20px]" />
           <p className="text-dark2 text-[12px] pb-[6px] font-semibold">
-            Thursday, dec 2<span> - AVAILABLE SLOTS</span>
+            {formattedDate} <span> - AVAILABLE SLOTS</span>
           </p>
-          <ul className="flex flex-col gap-[15px]">
-            {slotsData.map((slot) => (
-              <li>
-                <Box>
-                  <p className="text-center text-primary font-semibold">
-                    {slot}
-                  </p>
-                </Box>
-              </li>
-            ))}
-          </ul>
+          <SlotsSelect date={state?.dateSelected} />
         </div>
       </div>
       <div className="flex justify-between px-[30px] py-[15px] h-[78px] bg-primary text-white rounded-b-[12px]">
