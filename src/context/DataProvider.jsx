@@ -16,7 +16,7 @@ const reducerFunc = (state, action) => {
 };
 
 const DataProvider = ({ children }) => {
-  const initialValue = { allData: [], error: "" };
+  const initialValue = { allData: [], loading: false, error: "" };
   const [state, dispatch] = useReducer(reducerFunc, initialValue);
 
   const fetchData = async () => {
