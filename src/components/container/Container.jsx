@@ -5,7 +5,7 @@ import rightDesign from "../../assets/rightDesign.png";
 const Container = ({ children }) => {
   return (
     <div className="relative boxHeight">
-      <div className="absolute z-10 w-[928px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-[12px]">
+      <div className="relative m-5 my-10 lg:m-0 lg:absolute z-10 lg:w-[928px] lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 rounded-[12px]">
         {children}
       </div>
       <img

@@ -6,13 +6,13 @@ import chevronDown from "../../assets/chevronDown.svg";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between px-[40px] py-[12px] shadow-md">
+    <div className="flex flex-wrap sm:flex-nowrap justify-between px-[40px] py-[12px] shadow-md bg-white">
       <img
         src={logo}
         alt="Company logo"
         className="w-[228px] h-[61px] shrink-0"
       />
-      <div className="flex items-center gap-[20px] text-[18px]">
+      <div className="w-full sm:w-fit flex items-center justify-between sm:justify-normal sm:gap-[20px] mt-5 sm:mt-0 text-[18px]">
         <NavLink to="/" className="flex items-center">
           <span>Menu</span>
           <span className="text-primary w-[20px] h-[20px]">

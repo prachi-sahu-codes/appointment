@@ -19,7 +19,7 @@ const VariantSelect = ({}) => {
     variantsArr.length > 0 ? Array.from(new Set(variantsArr)) : variantsArr;
 
   return (
-    <select className="w-full accent-primary h-[48px] border border-[#C7C9D9] rounded-[10px] px-[12px] py-[8px]">
+    <select className="w-full accent-primary h-[48px] bg-[#fbfbfc] lg:bg-white border border-[#C7C9D9] rounded-[10px] px-[12px] py-[8px]">
       {variantsData?.map((str) => (
         <option key={str} value={str}>
           {str}

@@ -37,8 +37,8 @@ const Home = () => {
         <Loader />
       ) : (
         <Container>
-          <div className="flex h-[494px]">
-            <div className="bg-[#EBEBF0] w-full rounded-tl-[12px] p-[40px]">
+          <div className="flex flex-wrap lg:flex-nowrap lg:h-[494px]">
+            <div className="bg-[#EBEBF0] w-full rounded-t-[12px] lg:rounded-tr-[0] p-[10px] sm:p-[40px]">
               <h2 className="text-[24px] font-semibold text-dark1 pb-[4px]">
                 Test Service
               </h2>
@@ -47,7 +47,7 @@ const Home = () => {
               </p>
               <Calendar />
             </div>
-            <div className="w-full rounded-tr-[12px] bg-white p-[40px]">
+            <div className="w-full lg:rounded-tr-[12px] bg-[#fbfbfc] lg:bg-white p-[10px] sm:p-[40px]">
               <p className="text-dark2 text-[12px] pb-[6px] font-semibold">
                 SELECT FROM VARIANTS
               </p>
