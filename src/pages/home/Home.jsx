@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import chevronRight from "../../assets/chevronRight.svg";
 import {
   Calendar,
@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 
 const Home = () => {
   const { state } = useData();
+  const navigate = useNavigate();
 
   const inputDate = new Date(state.dateSelected[0]?.date ?? "2024-01-20");
   const formattedDate = new Intl.DateTimeFormat("en-US", {
@@ -23,6 +24,7 @@ const Home = () => {
 
   const submitHandler = () => {
     if (state?.slotSelected.length > 0) {
+      navigate("/confirmation");
       toast.success("Slot booked successfully!");
     } else {
       toast.error("Please select a slot!");

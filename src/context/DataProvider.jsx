@@ -2,36 +2,6 @@ import React, { createContext, useContext, useReducer, useEffect } from "react";
 
 const DataContext = createContext();
 
-const reducerFunc = (state, action) => {
-  switch (action.type) {
-    case "LOADING":
-      return { ...state, loading: action.payload };
-    case "GET_DATA":
-      return {
-        ...state,
-        allData: action.payload,
-        dateSelected: [action.payload[0]],
-      };
-    case "ERROR_IN_FETCHING":
-      return { ...state, error: action.payload };
-    case "DATE_SELECTED":
-      const dateFound = state.allData.filter(
-        (obj) =>
-          new Date(obj.date).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-          }) === action.payload
-      );
-      return { ...state, dateSelected: dateFound };
-    case "SLOT_SELECTED":
-      console.log("selected", action.payload);
-      return { ...state, slotSelected: action.payload };
-    default:
-      return state;
-  }
-};
-
 const DataProvider = ({ children }) => {
   const initialValue = {
     allData: [],
@@ -39,6 +9,37 @@ const DataProvider = ({ children }) => {
     error: "",
     dateSelected: [],
     slotSelected: "",
+  };
+  const reducerFunc = (state, action) => {
+    switch (action.type) {
+      case "LOADING":
+        return { ...state, loading: action.payload };
+      case "GET_DATA":
+        return {
+          ...state,
+          allData: action.payload,
+          dateSelected: [action.payload[0]],
+        };
+      case "ERROR_IN_FETCHING":
+        return { ...state, error: action.payload };
+      case "DATE_SELECTED":
+        const dateFound = state.allData.filter(
+          (obj) =>
+            new Date(obj.date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+            }) === action.payload
+        );
+        return { ...state, dateSelected: dateFound };
+      case "SLOT_SELECTED":
+        console.log("selected", action.payload);
+        return { ...state, slotSelected: action.payload };
+      case "CLEAR":
+        return { ...state, slotSelected: "" };
+      default:
+        return state;
+    }
   };
   const [state, dispatch] = useReducer(reducerFunc, initialValue);
 
