@@ -5,6 +5,7 @@ import Container from "./container/Container";
 import VariantSelect from "./variantSelect/VariantSelect";
 import SlotsSelect from "./slotsSelect/SlotsSelect";
 import Toaster from "./toaster/Toaster";
+import Loader from "./loader/Loader";
 
 export {
   Navbar,
@@ -14,4 +15,5 @@ export {
   VariantSelect,
   SlotsSelect,
   Toaster,
+  Loader
 };

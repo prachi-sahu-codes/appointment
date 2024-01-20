@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router";
-import "react-toastify/dist/ReactToastify.css";
 import { Home } from "./pages";
 import { Navbar, Toaster } from "./components";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 function App() {
