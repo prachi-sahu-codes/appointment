@@ -4,3 +4,7 @@
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
+
+.boxHeight {
+  height: calc(100vh - 85px);
+}
