@@ -52,7 +52,7 @@ const Home = () => {
               <VariantSelect date={state?.dateSelected} />
               <hr className="text-[#C7C9D9] my-[20px]" />
               <p className="text-dark2 text-[12px] pb-[6px] font-semibold">
-                {formattedDate} <span> - AVAILABLE SLOTS</span>
+                {formattedDate.toUpperCase()} <span> - AVAILABLE SLOTS</span>
               </p>
               <SlotsSelect date={state?.dateSelected} />
             </div>

@@ -6,7 +6,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="w-full">
+    <div className="w-full bg-gradient-to-r from-[#fbfbfc] to-[#eff4f3]">
       <Toaster />
       <Navbar />
       <Routes>

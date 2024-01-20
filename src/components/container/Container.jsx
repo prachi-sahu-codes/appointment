@@ -4,7 +4,7 @@ import rightDesign from "../../assets/rightDesign.png";
 
 const Container = ({ children }) => {
   return (
-    <div className="relative boxHeight bg-gradient-to-r from-[#fbfbfc] to-[#eff4f3]">
+    <div className="relative boxHeight">
       <div className="absolute z-10 w-[928px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-[12px]">
         {children}
       </div>

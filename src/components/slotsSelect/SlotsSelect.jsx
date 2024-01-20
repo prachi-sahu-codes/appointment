@@ -40,7 +40,7 @@ const SlotsSelect = ({ date }) => {
           </li>
         ))
       ) : (
-        <li className="text-center">No slots available</li>
+        <li className="text-center py-10 text-sm">No slots available!</li>
       )}
     </ul>
   );
