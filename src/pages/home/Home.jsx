@@ -2,14 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import chevronRight from "../../assets/chevronRight.svg";
 import {
-  Box,
   Calendar,
   Container,
   SlotsSelect,
   VariantSelect,
 } from "../../components";
-import { slotsData } from "../../data/data";
 import { useData } from "../../context/DataProvider";
+import { toast } from "react-toastify";
 
 const Home = () => {
   const { state, dispatch } = useData();
@@ -20,6 +19,15 @@ const Home = () => {
     month: "short",
     day: "numeric",
   }).format(inputDate);
+
+  const submitHandler = () => {
+    if (state?.slotSelected.length > 0) {
+      toast.success("Slot booked successfully!");
+    }else{
+      
+      toast.error("Please select a slot!");
+    }
+  };
 
   return (
     <Container>
@@ -56,7 +64,10 @@ const Home = () => {
             APPOINTO
           </Link>
         </p>
-        <button className="w-[128px] flex items-center gap-[8px] bg-white text-black py-[8px] px-[30px] text-[14px] rounded-[10px]">
+        <button
+          className="w-[128px] flex items-center gap-[8px] bg-white text-black py-[8px] px-[30px] text-[14px] rounded-[10px]"
+          onClick={() => submitHandler()}
+        >
           Next
           <img src={chevronRight} className="text-primary" />
         </button>
